@@ -14,16 +14,6 @@ pipeline {
 
     stages { 
 
-        stage('Cloning our Git') { 
-
-            steps { 
-
-                git 'https://github.com/sandeepw1/dac-demo25.git' 
-
-            }
-
-        } 
-
         stage('Building our image') { 
 
             steps { 
