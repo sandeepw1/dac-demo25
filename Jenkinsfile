@@ -46,7 +46,15 @@ pipeline {
 
         } 
         
-
+        stage('Deploy Image') {
+            steps {
+                sh '''
+                docker stop dac-demo
+                docker rm dac-demo
+                docker run --name dac-demo -p 80:80 -d sandeepwalvekar/python3:$BUILD_NUMBER
+                '''
+            }    
+        }
         stage('Cleaning up') { 
 
             steps { 
